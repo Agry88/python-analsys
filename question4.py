@@ -18,11 +18,13 @@ def Question4():
     # Add the cluster column to the data
     data["Cluster"] = clusters
 
-    # Find diference of " 性別", "年齡", "婚姻", "扶養人數" between clusters
+    # Find diference of "年齡", "總收入", "總費用", "總退款" between clusters
     # Assuming 'groupby', 'mean' methods are available in your Dataset class
     result = data.groupby("Cluster").agg({
         "年齡": "mean",
-        "扶養人數": "mean"
+        "總收入": "mean",
+        "總費用": "mean",
+        "總退款": "mean",
     }).unstack()
 
     # Display the result
